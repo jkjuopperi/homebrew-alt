@@ -5,6 +5,8 @@ class Libp11 < Formula
   homepage 'http://www.opensc-project.org/libp11'
   md5 'f46dcbbea13a0732ab095d36283d5060'
 
+  depends_on 'openssl'
+
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"

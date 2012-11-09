@@ -5,6 +5,8 @@ class Pkcs11Helper < Formula
   homepage 'http://www.opensc-project.org/opensc/wiki/pkcs11-helper'
   md5 '88ca59143f1b1d36283cab406f33a3fa'
 
+  depends_on 'openssl'
+
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"

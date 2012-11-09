@@ -5,7 +5,8 @@ class EnginePkcs11 < Formula
   homepage 'http://www.opensc-project.org/engine_pkcs11'
   md5 '693b402eafba152666e66431ed4c1b9e'
 
-  depends_on 'jkjuopperi/alt/libp11'
+  depends_on 'libp11'
+  depends_on 'openssl'
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
