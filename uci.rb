@@ -2,10 +2,9 @@ require 'formula'
 
 class Uci < Formula
   homepage 'http://wiki.openwrt.org/doc/techref/uci'
-  head 'git://nbd.name/uci.git'
   url 'git://nbd.name/uci.git'
-  sha1 'af2665866061c63ba63335b43aa6ff5102d4e492'
-  version '2012-03-28'
+  sha1 'ec09159ac73b15e30b10fd90afaf6b82ce889455'
+  version '2013-01-04'
 
   def options
     [
@@ -20,7 +19,7 @@ class Uci < Formula
   depends_on 'lua' if ARGV.include? "--lua"
 
   def patches
-    # Strange CMAKE_INSTALL_PREFIX fixed in CMakeLists.txt
+    # Remove forced CMAKE_INSTALL_PREFIX from CMakeLists.txt
     DATA
   end
 
@@ -52,7 +51,7 @@ end
 
 __END__
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 54c5cf2..60188f8 100644
+index 0be23b6..e3968c8 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -2,8 +2,6 @@ cmake_minimum_required(VERSION 2.6)
@@ -61,7 +60,7 @@ index 54c5cf2..60188f8 100644
  
 -SET(CMAKE_INSTALL_PREFIX /usr)
 -
+ SET(CMAKE_SHARED_LIBRARY_LINK_C_FLAGS "")
  ADD_DEFINITIONS(-Os -Wall -Werror --std=gnu99 -g3 -I. -DUCI_PREFIX="${CMAKE_INSTALL_PREFIX}")
  
- OPTION(UCI_PLUGIN_SUPPORT "plugin support" ON)
 
