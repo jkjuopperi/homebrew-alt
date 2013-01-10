@@ -2,9 +2,9 @@ require 'formula'
 
 class Uci < Formula
   homepage 'http://wiki.openwrt.org/doc/techref/uci'
-  url 'git://nbd.name/uci.git'
-  sha1 'ec09159ac73b15e30b10fd90afaf6b82ce889455'
+  url 'git://nbd.name/uci.git', :revision => 'ec09159ac73b15e30b10fd90afaf6b82ce889455'
   version '2013-01-04'
+  head 'git://nbd.name/uci.git'
 
   def options
     [
